@@ -1,0 +1,149 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    color: #010713;
+    margin: 0;
+    padding: 0;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/*positions logo to left side*/
+.header-left img {
+    float: left;
+    width: 25%;
+}
+
+/*Styles the Login / Sign Up links*/
+.header-right a {
+    position: relative;
+    float: right;
+    padding: 20px 50px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    background-color: #ccc;
+}
+
+/*Styles Login / Sign Up buttons on hover*/
+.header-right a:hover {
+    background-color: rgb(223, 221, 221);
+    color: black;
+}
+
+/*Styles nagivation bar*/
+.topnav {
+    clear: both;
+    border: 1px solid #ccc;
+    border-width: 0 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+.topnav li {
+    display: inline;
+    color: black;
+}
+
+/*Styles navigation bar links*/
+.topnav a {
+    display: inline-block;
+    padding: 20px 7%;
+    text-decoration: none;
+    font-size:1.2em;
+    color: black;
+    
+}
+
+.topnav a:hover {
+    background-color: rgb(223, 221, 221);
+    color: black;
+}
+
+.fa-fa-bars { /*TODO change to show hamburger menu when screen size < ? */
+    display: hidden;
+}
+
+/* Styles slider image*/
+.slide-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-container {
+    height: 655px;
+    display: none;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.prev, .next{
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	font-size: 50px;
+	padding: 15px;
+	cursor: pointer;
+	color: #fff;
+	transition: 0.1s;
+	user-select: none;
+}
+
+.prev:hover, .next:hover{
+	color: #00a7ff; /* blue */
+}
+
+.next {
+    right: 0;
+} 
+
+.dotsbox {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 40px;
+    cursor: pointer;
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #ffff;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.homepage-details {
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px;
+    padding: 5px;
+}
+
+.homepage-details a {
+    float: right;
+    padding: 20px 30px;
+    text-decoration: none;
+    background-color: rgb(54, 162, 230);
+    font-weight: bold;
+    font-size: 26px;
+    color: white;
+}
+
+.enroll-info h1,.advisement-info h1 {
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.enroll-info p, .advisement-info p {
+    font-size: 28px;
+}
