@@ -79,8 +79,8 @@ body {
     flex: 1 1 auto;
 }
 
-.topnav li:last-of-type {
-    /* display: none; */
+.topnav li:not(:last-of-type) {
+    display: none;
 }
 
 /*Styles navigation bar links*/
@@ -226,5 +226,11 @@ body {
     .advisement-info-wrap {
         padding: 10px
     }
+    .topnav li:not(:last-of-type) {
+        display: inline-block;
+    }
 
+    .topnav li:last-of-type {
+        display: none;
+    }
 }
