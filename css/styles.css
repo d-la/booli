@@ -1,5 +1,9 @@
-html {
-    box-sizing: border-box;
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
@@ -9,18 +13,36 @@ body {
     font-family: 'Shippori Mincho', serif;
     font-size: 20px;
     line-height: 1.5;
+    background: #eee;
+}
+
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    /* padding: 100px 0; */
+    align-items: center;
+}
+
+.header-left {
+    flex: 1 1;
 }
 
 /*positions logo to left side*/
 .header-left img {
-    float: left;
-    width: 25%;
+    width: 100%;
+    max-width: 500px;
+}
+
+.header-right {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    flex: 0 0 100px;
 }
 
 /*Styles the Login / Sign Up links*/
 .header-right a {
     position: relative;
-    float: right;
     padding: 20px 50px;
     text-decoration: none;
     color: black;
@@ -36,9 +58,6 @@ body {
 
 /*Styles nagivation bar*/
 .topnav {
-    clear: both;
-    border: 1px solid #ccc;
-    border-width: 0 0;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -46,15 +65,28 @@ body {
     background-color: lightgrey;
 }
 
+.topnav__list {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0;
+    padding: 0;
+    flex: 0 0 350px;
+}
+
 .topnav li {
-    display: inline;
+    display: inline-block;
     color: black;
+    flex: 1 1 auto;
+}
+
+.topnav li:last-of-type {
+    /* display: none; */
 }
 
 /*Styles navigation bar links*/
 .topnav a {
-    display: inline-block;
-    padding: 20px 7%;
+    display: block;
+    padding: 20px 0;
     text-decoration: none;
     font-size:1.2em;
     color: black;
@@ -66,8 +98,14 @@ body {
     color: black;
 }
 
-.fa-fa-bars { /*TODO change to show hamburger menu when screen size < ? */
-    display: hidden;
+.slider-image {
+    width: 100%;
+    height: auto;
+}
+
+.menu-sign-up,
+.menu-login {
+    display: none;
 }
 
 /* Styles slider image*/
@@ -122,15 +160,22 @@ body {
 }
 
 .homepage-details {
-    height: 500px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 300px;
-    padding: 5px;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.enroll-info,
+.advisement-info {
+    flex: 1 1 100%;
+}
+
+.enroll-info-wrap,
+.advisement-info-wrap {
+    padding: 25px 10px
 }
 
 .homepage-details a {
-    float: right;
+    display: inline-block;
     padding: 20px 30px;
     text-decoration: none;
     background-color: rgb(54, 162, 230);
@@ -146,4 +191,40 @@ body {
 
 .enroll-info p, .advisement-info p {
     font-size: 28px;
+}
+
+.align-right {
+    text-align: right;
+}
+
+@media all and (min-width: 786px) {
+    .header {
+        padding: 100px 0;
+    }
+    .topnav li:last-of-type {
+        display: none;
+    }
+    .menu-sign-up,
+    .menu-login {
+        display: block;
+    }
+    .homepage-details {
+        flex-flow: row wrap;
+    }
+
+    .enroll-info,
+    .advisement-info {
+        flex: 1 1 50%;
+    }
+    .mobile-menu-button {
+        display: none;
+    }
+    .header-right {
+        flex: 0 0 350px;
+    }
+    .enroll-info-wrap,
+    .advisement-info-wrap {
+        padding: 10px
+    }
+
 }
