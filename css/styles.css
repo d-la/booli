@@ -115,10 +115,13 @@ body {
 }
 
 .image-container {
-    height: 655px;
     display: none;
     overflow: hidden;
     flex-shrink: 0;
+}
+
+.slider-image:not(:first-of-type) {
+    display: none;
 }
 
 .prev, .next{
