@@ -25,7 +25,7 @@ li {
 }
 .header {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   /* padding: 100px 0; */
   align-items: center;
 }
@@ -48,7 +48,8 @@ li {
 }
 
 /*Styles the Login / Sign Up links*/
-.header-right a {
+.menu-link,
+.mobile-menu-button {
   position: relative;
   padding: 20px 50px;
   text-decoration: none;
@@ -58,9 +59,28 @@ li {
 }
 
 /*Styles Login / Sign Up buttons on hover*/
-.header-right a:hover {
+.menu-link:hover {
   background-color: rgb(223, 221, 221);
   color: black;
+}
+
+.header-mobile-menu {
+  flex: 0 0 100%;
+  display: none;
+}
+
+.header-mobile-menu.active {
+  display: block;
+}
+
+.mobile-menu-link {
+  display: block;
+  position: relative;
+  padding: 20px 50px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  background-color: #ccc;
 }
 
 /*Styles nagivation bar*/
@@ -72,35 +92,38 @@ li {
   background-color: lightgrey;
 }
 
-.topnav #myLinks {
-  display: flex;
-  flex-flow: row nowrap;
+#myLinks {
+  display: none; /* The menu on mobile should be hidden by default. See media query where it gets displayed on larger screens */
+  flex-flow: column wrap; /* The menu on mobile should stack vertically */
   margin: 0;
   padding: 0;
   flex: 0 0 350px;
 }
 
-.topnav a {
+/* Active state of the menu, the menu should display: flex instead of display: none */
+#myLinks.active {
+  display: flex;
+}
+
+.nav-link {
   display: block;
   color: black;
   flex: 1 1 auto;
-}
-
-.topnav a:not(:last-of-type) {
-  /*not the hamburger menu*/
-  display: none;
-}
-
-/*Styles navigation bar links*/
-.topnav a {
-  display: block;
   padding: 20px 0;
   text-decoration: none;
   font-size: 1.2em;
-  color: black;
 }
 
-.topnav a:hover {
+.topnav-hamburger {
+  /* Display on mobile, hide on desktop */
+  display: block;
+  color: black;
+  padding: 20px 0;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.nav-link:hover {
   background-color: rgb(223, 221, 221);
   color: black;
 }
@@ -264,9 +287,17 @@ input[type="submit"] {
   .header {
     padding: 100px 0;
   }
-  .topnav a:last-of-type {
+  /* The nav menu on larger screens should display by default */
+  #myLinks {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .topnav-hamburger {
+    /* Do not show the hamgburger icon on desktop */
     display: none;
   }
+
   .menu-link {
     display: block;
   }
@@ -290,10 +321,6 @@ input[type="submit"] {
   }
   .topnav a:not(:last-of-type) {
     display: inline-block;
-  }
-
-  .topnav a:last-of-type {
-    display: none;
   }
 }
 
